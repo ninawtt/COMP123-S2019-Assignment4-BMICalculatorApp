@@ -32,6 +32,7 @@
             this.BMITextBox = new System.Windows.Forms.TextBox();
             this.BMILabel = new System.Windows.Forms.Label();
             this.BMIResultTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.BMIResultTextLabel1 = new System.Windows.Forms.Label();
             this.BMIResultTextLabel2 = new System.Windows.Forms.Label();
             this.BMIResultTextLabel3 = new System.Windows.Forms.Label();
             this.BMIResultTextLabel4 = new System.Windows.Forms.Label();
@@ -41,7 +42,6 @@
             this.BMIResultTextLabel8 = new System.Windows.Forms.Label();
             this.BMIResultTextLabel9 = new System.Windows.Forms.Label();
             this.BMIResultTextLabel10 = new System.Windows.Forms.Label();
-            this.BMIResultTextLabel1 = new System.Windows.Forms.Label();
             this.BackButton = new System.Windows.Forms.Button();
             this.MultilineTextBox = new System.Windows.Forms.TextBox();
             this.BMITableLayoutPanel.SuspendLayout();
@@ -117,6 +117,23 @@
             this.BMIResultTableLayoutPanel.Size = new System.Drawing.Size(290, 220);
             this.BMIResultTableLayoutPanel.TabIndex = 10;
             // 
+            // BMIResultTextLabel1
+            // 
+            this.BMIResultTextLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.BMIResultTextLabel1.AutoSize = true;
+            this.BMIResultTextLabel1.BackColor = System.Drawing.Color.Navy;
+            this.BMIResultTextLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BMIResultTextLabel1.ForeColor = System.Drawing.Color.White;
+            this.BMIResultTextLabel1.Location = new System.Drawing.Point(3, 0);
+            this.BMIResultTextLabel1.Name = "BMIResultTextLabel1";
+            this.BMIResultTextLabel1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.BMIResultTextLabel1.Size = new System.Drawing.Size(107, 44);
+            this.BMIResultTextLabel1.TabIndex = 0;
+            this.BMIResultTextLabel1.Text = "BMI SCALE";
+            this.BMIResultTextLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // BMIResultTextLabel2
             // 
             this.BMIResultTextLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -126,9 +143,9 @@
             this.BMIResultTextLabel2.BackColor = System.Drawing.Color.Navy;
             this.BMIResultTextLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BMIResultTextLabel2.ForeColor = System.Drawing.Color.White;
-            this.BMIResultTextLabel2.Location = new System.Drawing.Point(104, 0);
+            this.BMIResultTextLabel2.Location = new System.Drawing.Point(116, 0);
             this.BMIResultTextLabel2.Name = "BMIResultTextLabel2";
-            this.BMIResultTextLabel2.Size = new System.Drawing.Size(183, 44);
+            this.BMIResultTextLabel2.Size = new System.Drawing.Size(171, 44);
             this.BMIResultTextLabel2.TabIndex = 1;
             this.BMIResultTextLabel2.Text = "Result";
             this.BMIResultTextLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -143,7 +160,7 @@
             this.BMIResultTextLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BMIResultTextLabel3.Location = new System.Drawing.Point(3, 44);
             this.BMIResultTextLabel3.Name = "BMIResultTextLabel3";
-            this.BMIResultTextLabel3.Size = new System.Drawing.Size(95, 44);
+            this.BMIResultTextLabel3.Size = new System.Drawing.Size(107, 44);
             this.BMIResultTextLabel3.TabIndex = 2;
             this.BMIResultTextLabel3.Text = "Underweight";
             this.BMIResultTextLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -156,9 +173,9 @@
             this.BMIResultTextLabel4.AutoSize = true;
             this.BMIResultTextLabel4.BackColor = System.Drawing.Color.White;
             this.BMIResultTextLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BMIResultTextLabel4.Location = new System.Drawing.Point(104, 44);
+            this.BMIResultTextLabel4.Location = new System.Drawing.Point(116, 44);
             this.BMIResultTextLabel4.Name = "BMIResultTextLabel4";
-            this.BMIResultTextLabel4.Size = new System.Drawing.Size(183, 44);
+            this.BMIResultTextLabel4.Size = new System.Drawing.Size(171, 44);
             this.BMIResultTextLabel4.TabIndex = 3;
             this.BMIResultTextLabel4.Text = "less than 18.5";
             this.BMIResultTextLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -173,7 +190,7 @@
             this.BMIResultTextLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BMIResultTextLabel5.Location = new System.Drawing.Point(3, 88);
             this.BMIResultTextLabel5.Name = "BMIResultTextLabel5";
-            this.BMIResultTextLabel5.Size = new System.Drawing.Size(95, 44);
+            this.BMIResultTextLabel5.Size = new System.Drawing.Size(107, 44);
             this.BMIResultTextLabel5.TabIndex = 4;
             this.BMIResultTextLabel5.Text = "Normal";
             this.BMIResultTextLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -186,9 +203,9 @@
             this.BMIResultTextLabel6.AutoSize = true;
             this.BMIResultTextLabel6.BackColor = System.Drawing.Color.White;
             this.BMIResultTextLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BMIResultTextLabel6.Location = new System.Drawing.Point(104, 88);
+            this.BMIResultTextLabel6.Location = new System.Drawing.Point(116, 88);
             this.BMIResultTextLabel6.Name = "BMIResultTextLabel6";
-            this.BMIResultTextLabel6.Size = new System.Drawing.Size(183, 44);
+            this.BMIResultTextLabel6.Size = new System.Drawing.Size(171, 44);
             this.BMIResultTextLabel6.TabIndex = 5;
             this.BMIResultTextLabel6.Text = "between 18.5 and 24.9";
             this.BMIResultTextLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -203,7 +220,7 @@
             this.BMIResultTextLabel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BMIResultTextLabel7.Location = new System.Drawing.Point(3, 132);
             this.BMIResultTextLabel7.Name = "BMIResultTextLabel7";
-            this.BMIResultTextLabel7.Size = new System.Drawing.Size(95, 44);
+            this.BMIResultTextLabel7.Size = new System.Drawing.Size(107, 44);
             this.BMIResultTextLabel7.TabIndex = 6;
             this.BMIResultTextLabel7.Text = "Overweight";
             this.BMIResultTextLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -216,9 +233,9 @@
             this.BMIResultTextLabel8.AutoSize = true;
             this.BMIResultTextLabel8.BackColor = System.Drawing.Color.White;
             this.BMIResultTextLabel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BMIResultTextLabel8.Location = new System.Drawing.Point(104, 132);
+            this.BMIResultTextLabel8.Location = new System.Drawing.Point(116, 132);
             this.BMIResultTextLabel8.Name = "BMIResultTextLabel8";
-            this.BMIResultTextLabel8.Size = new System.Drawing.Size(183, 44);
+            this.BMIResultTextLabel8.Size = new System.Drawing.Size(171, 44);
             this.BMIResultTextLabel8.TabIndex = 7;
             this.BMIResultTextLabel8.Text = "between 25 and 29.9";
             this.BMIResultTextLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -233,7 +250,7 @@
             this.BMIResultTextLabel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BMIResultTextLabel9.Location = new System.Drawing.Point(3, 176);
             this.BMIResultTextLabel9.Name = "BMIResultTextLabel9";
-            this.BMIResultTextLabel9.Size = new System.Drawing.Size(95, 44);
+            this.BMIResultTextLabel9.Size = new System.Drawing.Size(107, 44);
             this.BMIResultTextLabel9.TabIndex = 8;
             this.BMIResultTextLabel9.Text = "Obese";
             this.BMIResultTextLabel9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -246,29 +263,12 @@
             this.BMIResultTextLabel10.AutoSize = true;
             this.BMIResultTextLabel10.BackColor = System.Drawing.Color.White;
             this.BMIResultTextLabel10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BMIResultTextLabel10.Location = new System.Drawing.Point(104, 176);
+            this.BMIResultTextLabel10.Location = new System.Drawing.Point(116, 176);
             this.BMIResultTextLabel10.Name = "BMIResultTextLabel10";
-            this.BMIResultTextLabel10.Size = new System.Drawing.Size(183, 44);
+            this.BMIResultTextLabel10.Size = new System.Drawing.Size(171, 44);
             this.BMIResultTextLabel10.TabIndex = 9;
             this.BMIResultTextLabel10.Text = "30 or greater";
             this.BMIResultTextLabel10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // BMIResultTextLabel1
-            // 
-            this.BMIResultTextLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.BMIResultTextLabel1.AutoSize = true;
-            this.BMIResultTextLabel1.BackColor = System.Drawing.Color.Navy;
-            this.BMIResultTextLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BMIResultTextLabel1.ForeColor = System.Drawing.Color.White;
-            this.BMIResultTextLabel1.Location = new System.Drawing.Point(3, 0);
-            this.BMIResultTextLabel1.Name = "BMIResultTextLabel1";
-            this.BMIResultTextLabel1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.BMIResultTextLabel1.Size = new System.Drawing.Size(95, 44);
-            this.BMIResultTextLabel1.TabIndex = 0;
-            this.BMIResultTextLabel1.Text = "BMI SCALE";
-            this.BMIResultTextLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BackButton
             // 

@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnimationState.cs" />
     <Compile Include="BMICalculator.cs">
       <SubType>Form</SubType>
     </Compile>

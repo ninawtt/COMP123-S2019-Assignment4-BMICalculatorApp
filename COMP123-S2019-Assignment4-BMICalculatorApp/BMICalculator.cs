@@ -14,10 +14,38 @@ namespace COMP123_S2019_Assignment4_BMICalculatorApp
 {
     public partial class BMICalculator : Form
     {
+        // PRIVATE DATA MEMBERS
+        private TextBox m_activeTextBox;
+
         // CLASS PROPERTIES
         public string outputString { get; set; }
         public float outputValue { get; set; }
         public bool decimalExists { get; set; }
+        public AnimationState animationState;
+
+        public TextBox ActiveTextBox
+        {
+            get
+            {
+                return m_activeTextBox;
+            }
+            set
+            {
+                // Check if m_activeTextBox is already pointing at a textBox
+                if(m_activeTextBox != null)
+                {
+                    m_activeTextBox.BackColor = Color.White;
+                }
+
+                m_activeTextBox = value;
+
+                // Check if m_activeTextBox has not been set to null
+                if(m_activeTextBox != null)
+                {
+                    m_activeTextBox.BackColor = Color.LightBlue;
+                }
+            }
+        }
 
         /// <summary>
         /// This is the constructor for the BMICalculator
@@ -25,7 +53,37 @@ namespace COMP123_S2019_Assignment4_BMICalculatorApp
         public BMICalculator()
         {
             InitializeComponent();
-            this.Height = 480;
+            this.Size = new Size(320, 480);
+            this.StartPosition = FormStartPosition.CenterScreen;
+        }
+
+        /// <summary>
+        /// This is the event handler for the form load event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BMICalculator_Load(object sender, EventArgs e)
+        {
+            
+
+            clearNumericKeyboard();
+            NumberButtonTableLayoutPanel.Visible = false;
+            ActiveTextBox = null;
+            animationState = AnimationState.IDLE;
+        }
+
+        /// <summary>
+        /// This is the event handler for the BMICalculator form click event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BMICalculator_Click(object sender, EventArgs e)
+        {
+            clearNumericKeyboard();
+            //NumberButtonTableLayoutPanel.Visible = false;
+            ActiveTextBox = null;
+            animationState = AnimationState.DOWN;
+            AnimationTimer.Enabled = true;
         }
 
         private void CalculateButton_Click(object sender, EventArgs e)
@@ -123,23 +181,14 @@ namespace COMP123_S2019_Assignment4_BMICalculatorApp
             {
                 outputValue = 0.1f;
             }
-            //if (ImperialUnitRadioButton.Checked)
-            //{
-            //    if (InchesTextBox.Focused)
-            //    {
-            //        InchesTextBox.Text = outputValue.ToString();
-            //    }
-            //    if (PoundTextBox.Focused)
-            //    {
-            //        PoundTextBox.Text = outputValue.ToString();
-            //    }
-            //}
-            //else
-            //{
-            //    MeterTextBox.Text = outputValue.ToString();
-            //}
+
+            ActiveTextBox.Text = outputValue.ToString();
             clearNumericKeyboard();
-            NumberButtonTableLayoutPanel.Visible = false;
+            //NumberButtonTableLayoutPanel.Visible = false;
+            ActiveTextBox.BackColor = Color.White;
+            ActiveTextBox = null;
+            animationState = AnimationState.DOWN;
+            AnimationTimer.Enabled = true;
         }
 
         /// <summary>
@@ -174,13 +223,80 @@ namespace COMP123_S2019_Assignment4_BMICalculatorApp
         }
 
         /// <summary>
-        /// This is the event handler for the form load event
+        /// This is the event handler for the ActiveTextBox click event
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void BMICalculator_Load(object sender, EventArgs e)
+        private void ActiveTextBox_Click(object sender, EventArgs e)
         {
-            clearNumericKeyboard(); 
+            ActiveTextBox = sender as TextBox;
+            ActiveTextBox.BackColor = Color.LightBlue;
+
+            NumberButtonTableLayoutPanel.Visible = true;
+
+            if(ActiveTextBox.Text != "0")
+            {
+                ResultLabel.Text = ActiveTextBox.Text;
+                outputString = ActiveTextBox.Text;  
+            }
+            
+            NumberButtonTableLayoutPanel.BringToFront();
+
+            AnimationTimer.Enabled = true;
+            animationState = AnimationState.UP;
         }
+
+        /// <summary>
+        /// This is the event handler for the AnimationTimer Tick event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AnimationTimer_Tick(object sender, EventArgs e)
+        {
+            switch(animationState)
+            {
+                case AnimationState.IDLE:
+                    break;
+                case AnimationState.UP:
+                    MoveNumberButtonTableUp();
+                    break;
+                case AnimationState.DOWN:
+                    MoveNumberButtonTableDown();
+                    break;
+            }
+        }
+
+        private void MoveNumberButtonTableUp()
+        {
+            var currentLocation = NumberButtonTableLayoutPanel.Location;
+
+            // Decrement current location of NumberButtonTableLayoutPanel by 20
+            NumberButtonTableLayoutPanel.Location = new Point(currentLocation.X, currentLocation.Y - 20);
+
+            // Compare NumberButtonTableLayoutPanel current location with the ActiveLabel
+            if (currentLocation.Y <= ActiveTextBox.Location.Y + 130)
+            {
+                NumberButtonTableLayoutPanel.Location = new Point(currentLocation.X, ActiveTextBox.Location.Y + 130);
+                AnimationTimer.Enabled = false;
+                animationState = AnimationState.IDLE;
+            }
+        }
+
+        private void MoveNumberButtonTableDown()
+        {
+            var currentLocation = NumberButtonTableLayoutPanel.Location;
+
+            // Increment current location of NumberButtonTableLayoutPanel by 20
+            NumberButtonTableLayoutPanel.Location = new Point(currentLocation.X, currentLocation.Y + 20);
+
+            // Compare NumberButtonTableLayoutPanel current location with the ActiveLabel
+            if (currentLocation.Y >= 450)
+            {
+                NumberButtonTableLayoutPanel.Location = new Point(currentLocation.X, 450);
+                AnimationTimer.Enabled = false;
+                animationState = AnimationState.IDLE;
+            }
+        }
+
     }
 }

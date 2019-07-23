@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.ImperialUnitRadioButton = new System.Windows.Forms.RadioButton();
             this.MetricUnitRadioButton = new System.Windows.Forms.RadioButton();
             this.UnitSelectionGroupBox = new System.Windows.Forms.GroupBox();
@@ -35,7 +36,7 @@
             this.InchLabel = new System.Windows.Forms.Label();
             this.PoundLabel = new System.Windows.Forms.Label();
             this.PoundTextBox = new System.Windows.Forms.TextBox();
-            this.InchesTextBox = new System.Windows.Forms.TextBox();
+            this.InchTextBox = new System.Windows.Forms.TextBox();
             this.MetricTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.MeterLabel = new System.Windows.Forms.Label();
             this.KilogramLabel = new System.Windows.Forms.Label();
@@ -63,6 +64,7 @@
             this.ClearButton = new System.Windows.Forms.Button();
             this.ZeroButton = new System.Windows.Forms.Button();
             this.DoneButton = new System.Windows.Forms.Button();
+            this.AnimationTimer = new System.Windows.Forms.Timer(this.components);
             this.UnitSelectionGroupBox.SuspendLayout();
             this.ImperialTableLayoutPanel.SuspendLayout();
             this.MetricTableLayoutPanel.SuspendLayout();
@@ -98,7 +100,7 @@
             // 
             this.UnitSelectionGroupBox.Controls.Add(this.ImperialUnitRadioButton);
             this.UnitSelectionGroupBox.Controls.Add(this.MetricUnitRadioButton);
-            this.UnitSelectionGroupBox.Location = new System.Drawing.Point(6, -1);
+            this.UnitSelectionGroupBox.Location = new System.Drawing.Point(15, -1);
             this.UnitSelectionGroupBox.Name = "UnitSelectionGroupBox";
             this.UnitSelectionGroupBox.Size = new System.Drawing.Size(280, 80);
             this.UnitSelectionGroupBox.TabIndex = 3;
@@ -107,18 +109,18 @@
             // ImperialTableLayoutPanel
             // 
             this.ImperialTableLayoutPanel.ColumnCount = 2;
-            this.ImperialTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.ImperialTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.ImperialTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58F));
+            this.ImperialTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42F));
             this.ImperialTableLayoutPanel.Controls.Add(this.InchLabel, 0, 0);
             this.ImperialTableLayoutPanel.Controls.Add(this.PoundLabel, 0, 1);
             this.ImperialTableLayoutPanel.Controls.Add(this.PoundTextBox, 1, 1);
-            this.ImperialTableLayoutPanel.Controls.Add(this.InchesTextBox, 1, 0);
-            this.ImperialTableLayoutPanel.Location = new System.Drawing.Point(50, 85);
+            this.ImperialTableLayoutPanel.Controls.Add(this.InchTextBox, 1, 0);
+            this.ImperialTableLayoutPanel.Location = new System.Drawing.Point(28, 85);
             this.ImperialTableLayoutPanel.Name = "ImperialTableLayoutPanel";
             this.ImperialTableLayoutPanel.RowCount = 2;
             this.ImperialTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.ImperialTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.ImperialTableLayoutPanel.Size = new System.Drawing.Size(200, 120);
+            this.ImperialTableLayoutPanel.Size = new System.Drawing.Size(240, 120);
             this.ImperialTableLayoutPanel.TabIndex = 4;
             // 
             // InchLabel
@@ -130,7 +132,7 @@
             this.InchLabel.Location = new System.Drawing.Point(0, 0);
             this.InchLabel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 20);
             this.InchLabel.Name = "InchLabel";
-            this.InchLabel.Size = new System.Drawing.Size(120, 40);
+            this.InchLabel.Size = new System.Drawing.Size(139, 40);
             this.InchLabel.TabIndex = 0;
             this.InchLabel.Text = "Inches";
             this.InchLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -144,7 +146,7 @@
             this.PoundLabel.Location = new System.Drawing.Point(0, 60);
             this.PoundLabel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 20);
             this.PoundLabel.Name = "PoundLabel";
-            this.PoundLabel.Size = new System.Drawing.Size(120, 40);
+            this.PoundLabel.Size = new System.Drawing.Size(139, 40);
             this.PoundLabel.TabIndex = 1;
             this.PoundLabel.Text = "Pounds";
             this.PoundLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -154,38 +156,44 @@
             this.PoundTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.PoundTextBox.Location = new System.Drawing.Point(123, 63);
+            this.PoundTextBox.Location = new System.Drawing.Point(142, 63);
             this.PoundTextBox.Name = "PoundTextBox";
-            this.PoundTextBox.Size = new System.Drawing.Size(74, 68);
+            this.PoundTextBox.Size = new System.Drawing.Size(95, 68);
             this.PoundTextBox.TabIndex = 3;
+            this.PoundTextBox.Tag = "";
+            this.PoundTextBox.Text = "0";
             this.PoundTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.PoundTextBox.Click += new System.EventHandler(this.ActiveTextBox_Click);
             // 
-            // InchesTextBox
+            // InchTextBox
             // 
-            this.InchesTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.InchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.InchesTextBox.Location = new System.Drawing.Point(123, 3);
-            this.InchesTextBox.Name = "InchesTextBox";
-            this.InchesTextBox.Size = new System.Drawing.Size(74, 68);
-            this.InchesTextBox.TabIndex = 2;
-            this.InchesTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.InchTextBox.Location = new System.Drawing.Point(142, 3);
+            this.InchTextBox.Name = "InchTextBox";
+            this.InchTextBox.Size = new System.Drawing.Size(95, 68);
+            this.InchTextBox.TabIndex = 2;
+            this.InchTextBox.Tag = "";
+            this.InchTextBox.Text = "0";
+            this.InchTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.InchTextBox.Click += new System.EventHandler(this.ActiveTextBox_Click);
             // 
             // MetricTableLayoutPanel
             // 
             this.MetricTableLayoutPanel.ColumnCount = 2;
-            this.MetricTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.MetricTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.MetricTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58F));
+            this.MetricTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42F));
             this.MetricTableLayoutPanel.Controls.Add(this.MeterLabel, 0, 0);
             this.MetricTableLayoutPanel.Controls.Add(this.KilogramLabel, 0, 1);
             this.MetricTableLayoutPanel.Controls.Add(this.KilogramTextBox, 1, 1);
             this.MetricTableLayoutPanel.Controls.Add(this.MeterTextBox, 1, 0);
-            this.MetricTableLayoutPanel.Location = new System.Drawing.Point(50, 85);
+            this.MetricTableLayoutPanel.Location = new System.Drawing.Point(28, 85);
             this.MetricTableLayoutPanel.Name = "MetricTableLayoutPanel";
             this.MetricTableLayoutPanel.RowCount = 2;
             this.MetricTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.MetricTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.MetricTableLayoutPanel.Size = new System.Drawing.Size(200, 120);
+            this.MetricTableLayoutPanel.Size = new System.Drawing.Size(240, 120);
             this.MetricTableLayoutPanel.TabIndex = 5;
             this.MetricTableLayoutPanel.Visible = false;
             // 
@@ -198,7 +206,7 @@
             this.MeterLabel.Location = new System.Drawing.Point(0, 0);
             this.MeterLabel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 20);
             this.MeterLabel.Name = "MeterLabel";
-            this.MeterLabel.Size = new System.Drawing.Size(120, 40);
+            this.MeterLabel.Size = new System.Drawing.Size(110, 40);
             this.MeterLabel.TabIndex = 0;
             this.MeterLabel.Text = " Meters";
             this.MeterLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -212,7 +220,7 @@
             this.KilogramLabel.Location = new System.Drawing.Point(0, 60);
             this.KilogramLabel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 20);
             this.KilogramLabel.Name = "KilogramLabel";
-            this.KilogramLabel.Size = new System.Drawing.Size(120, 40);
+            this.KilogramLabel.Size = new System.Drawing.Size(110, 40);
             this.KilogramLabel.TabIndex = 1;
             this.KilogramLabel.Text = "Kilograms";
             this.KilogramLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -222,22 +230,28 @@
             this.KilogramTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.KilogramTextBox.Location = new System.Drawing.Point(123, 63);
+            this.KilogramTextBox.Location = new System.Drawing.Point(113, 63);
             this.KilogramTextBox.Name = "KilogramTextBox";
-            this.KilogramTextBox.Size = new System.Drawing.Size(74, 68);
+            this.KilogramTextBox.Size = new System.Drawing.Size(84, 68);
             this.KilogramTextBox.TabIndex = 3;
+            this.KilogramTextBox.Tag = "";
+            this.KilogramTextBox.Text = "0";
             this.KilogramTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.KilogramTextBox.Click += new System.EventHandler(this.ActiveTextBox_Click);
             // 
             // MeterTextBox
             // 
             this.MeterTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.MeterTextBox.Location = new System.Drawing.Point(123, 3);
+            this.MeterTextBox.Location = new System.Drawing.Point(113, 3);
             this.MeterTextBox.Name = "MeterTextBox";
-            this.MeterTextBox.Size = new System.Drawing.Size(74, 68);
+            this.MeterTextBox.Size = new System.Drawing.Size(84, 68);
             this.MeterTextBox.TabIndex = 2;
+            this.MeterTextBox.Tag = "";
+            this.MeterTextBox.Text = "0";
             this.MeterTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.MeterTextBox.Click += new System.EventHandler(this.ActiveTextBox_Click);
             // 
             // CalculateButton
             // 
@@ -306,7 +320,7 @@
             this.MultilineTextBox.Location = new System.Drawing.Point(21, 315);
             this.MultilineTextBox.Multiline = true;
             this.MultilineTextBox.Name = "MultilineTextBox";
-            this.MultilineTextBox.Size = new System.Drawing.Size(261, 88);
+            this.MultilineTextBox.Size = new System.Drawing.Size(261, 0);
             this.MultilineTextBox.TabIndex = 13;
             // 
             // NumberButtonTableLayoutPanel
@@ -332,7 +346,7 @@
             this.NumberButtonTableLayoutPanel.Controls.Add(this.ZeroButton, 0, 4);
             this.NumberButtonTableLayoutPanel.Controls.Add(this.DoneButton, 3, 3);
             this.NumberButtonTableLayoutPanel.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NumberButtonTableLayoutPanel.Location = new System.Drawing.Point(6, 446);
+            this.NumberButtonTableLayoutPanel.Location = new System.Drawing.Point(12, 407);
             this.NumberButtonTableLayoutPanel.Name = "NumberButtonTableLayoutPanel";
             this.NumberButtonTableLayoutPanel.RowCount = 5;
             this.NumberButtonTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -340,7 +354,7 @@
             this.NumberButtonTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.NumberButtonTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.NumberButtonTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.NumberButtonTableLayoutPanel.Size = new System.Drawing.Size(284, 318);
+            this.NumberButtonTableLayoutPanel.Size = new System.Drawing.Size(280, 230);
             this.NumberButtonTableLayoutPanel.TabIndex = 14;
             // 
             // ResultLabel
@@ -354,7 +368,7 @@
             this.ResultLabel.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ResultLabel.Location = new System.Drawing.Point(3, 0);
             this.ResultLabel.Name = "ResultLabel";
-            this.ResultLabel.Size = new System.Drawing.Size(278, 63);
+            this.ResultLabel.Size = new System.Drawing.Size(274, 46);
             this.ResultLabel.TabIndex = 15;
             this.ResultLabel.Tag = "Result";
             this.ResultLabel.Text = "0";
@@ -367,9 +381,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ThreeButton.BackColor = System.Drawing.Color.SteelBlue;
             this.ThreeButton.ForeColor = System.Drawing.Color.White;
-            this.ThreeButton.Location = new System.Drawing.Point(145, 192);
+            this.ThreeButton.Location = new System.Drawing.Point(143, 141);
             this.ThreeButton.Name = "ThreeButton";
-            this.ThreeButton.Size = new System.Drawing.Size(65, 57);
+            this.ThreeButton.Size = new System.Drawing.Size(64, 40);
             this.ThreeButton.TabIndex = 8;
             this.ThreeButton.Tag = "3";
             this.ThreeButton.Text = "3";
@@ -383,9 +397,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TwoButton.BackColor = System.Drawing.Color.SteelBlue;
             this.TwoButton.ForeColor = System.Drawing.Color.White;
-            this.TwoButton.Location = new System.Drawing.Point(74, 192);
+            this.TwoButton.Location = new System.Drawing.Point(73, 141);
             this.TwoButton.Name = "TwoButton";
-            this.TwoButton.Size = new System.Drawing.Size(65, 57);
+            this.TwoButton.Size = new System.Drawing.Size(64, 40);
             this.TwoButton.TabIndex = 7;
             this.TwoButton.Tag = "2";
             this.TwoButton.Text = "2";
@@ -399,9 +413,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.OneButton.BackColor = System.Drawing.Color.SteelBlue;
             this.OneButton.ForeColor = System.Drawing.Color.White;
-            this.OneButton.Location = new System.Drawing.Point(3, 192);
+            this.OneButton.Location = new System.Drawing.Point(3, 141);
             this.OneButton.Name = "OneButton";
-            this.OneButton.Size = new System.Drawing.Size(65, 57);
+            this.OneButton.Size = new System.Drawing.Size(64, 40);
             this.OneButton.TabIndex = 6;
             this.OneButton.Tag = "1";
             this.OneButton.Text = "1";
@@ -415,9 +429,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SixButton.BackColor = System.Drawing.Color.SteelBlue;
             this.SixButton.ForeColor = System.Drawing.Color.White;
-            this.SixButton.Location = new System.Drawing.Point(145, 129);
+            this.SixButton.Location = new System.Drawing.Point(143, 95);
             this.SixButton.Name = "SixButton";
-            this.SixButton.Size = new System.Drawing.Size(65, 57);
+            this.SixButton.Size = new System.Drawing.Size(64, 40);
             this.SixButton.TabIndex = 5;
             this.SixButton.Tag = "6";
             this.SixButton.Text = "6";
@@ -431,9 +445,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FiveButton.BackColor = System.Drawing.Color.SteelBlue;
             this.FiveButton.ForeColor = System.Drawing.Color.White;
-            this.FiveButton.Location = new System.Drawing.Point(74, 129);
+            this.FiveButton.Location = new System.Drawing.Point(73, 95);
             this.FiveButton.Name = "FiveButton";
-            this.FiveButton.Size = new System.Drawing.Size(65, 57);
+            this.FiveButton.Size = new System.Drawing.Size(64, 40);
             this.FiveButton.TabIndex = 4;
             this.FiveButton.Tag = "5";
             this.FiveButton.Text = "5";
@@ -447,9 +461,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FourButton.BackColor = System.Drawing.Color.SteelBlue;
             this.FourButton.ForeColor = System.Drawing.Color.White;
-            this.FourButton.Location = new System.Drawing.Point(3, 129);
+            this.FourButton.Location = new System.Drawing.Point(3, 95);
             this.FourButton.Name = "FourButton";
-            this.FourButton.Size = new System.Drawing.Size(65, 57);
+            this.FourButton.Size = new System.Drawing.Size(64, 40);
             this.FourButton.TabIndex = 3;
             this.FourButton.Tag = "4";
             this.FourButton.Text = "4";
@@ -463,9 +477,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.NineButton.BackColor = System.Drawing.Color.SteelBlue;
             this.NineButton.ForeColor = System.Drawing.Color.White;
-            this.NineButton.Location = new System.Drawing.Point(145, 66);
+            this.NineButton.Location = new System.Drawing.Point(143, 49);
             this.NineButton.Name = "NineButton";
-            this.NineButton.Size = new System.Drawing.Size(65, 57);
+            this.NineButton.Size = new System.Drawing.Size(64, 40);
             this.NineButton.TabIndex = 2;
             this.NineButton.Tag = "9";
             this.NineButton.Text = "9";
@@ -479,9 +493,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.EightButton.BackColor = System.Drawing.Color.SteelBlue;
             this.EightButton.ForeColor = System.Drawing.Color.White;
-            this.EightButton.Location = new System.Drawing.Point(74, 66);
+            this.EightButton.Location = new System.Drawing.Point(73, 49);
             this.EightButton.Name = "EightButton";
-            this.EightButton.Size = new System.Drawing.Size(65, 57);
+            this.EightButton.Size = new System.Drawing.Size(64, 40);
             this.EightButton.TabIndex = 1;
             this.EightButton.Tag = "8";
             this.EightButton.Text = "8";
@@ -495,9 +509,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SevenButton.BackColor = System.Drawing.Color.SteelBlue;
             this.SevenButton.ForeColor = System.Drawing.Color.White;
-            this.SevenButton.Location = new System.Drawing.Point(3, 66);
+            this.SevenButton.Location = new System.Drawing.Point(3, 49);
             this.SevenButton.Name = "SevenButton";
-            this.SevenButton.Size = new System.Drawing.Size(65, 57);
+            this.SevenButton.Size = new System.Drawing.Size(64, 40);
             this.SevenButton.TabIndex = 0;
             this.SevenButton.Tag = "7";
             this.SevenButton.Text = "7";
@@ -511,9 +525,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DecimalButton.BackColor = System.Drawing.Color.SteelBlue;
             this.DecimalButton.ForeColor = System.Drawing.Color.White;
-            this.DecimalButton.Location = new System.Drawing.Point(145, 255);
+            this.DecimalButton.Location = new System.Drawing.Point(143, 187);
             this.DecimalButton.Name = "DecimalButton";
-            this.DecimalButton.Size = new System.Drawing.Size(65, 60);
+            this.DecimalButton.Size = new System.Drawing.Size(64, 40);
             this.DecimalButton.TabIndex = 16;
             this.DecimalButton.Tag = "decimal";
             this.DecimalButton.Text = ".";
@@ -529,9 +543,9 @@
             this.BackButton.BackgroundImage = global::COMP123_S2019_Assignment4_BMICalculatorApp.Properties.Resources.backbutton;
             this.BackButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BackButton.ForeColor = System.Drawing.Color.White;
-            this.BackButton.Location = new System.Drawing.Point(216, 66);
+            this.BackButton.Location = new System.Drawing.Point(213, 49);
             this.BackButton.Name = "BackButton";
-            this.BackButton.Size = new System.Drawing.Size(65, 57);
+            this.BackButton.Size = new System.Drawing.Size(64, 40);
             this.BackButton.TabIndex = 17;
             this.BackButton.Tag = "back";
             this.BackButton.UseVisualStyleBackColor = false;
@@ -545,9 +559,9 @@
             this.ClearButton.BackColor = System.Drawing.Color.DarkOrange;
             this.ClearButton.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClearButton.ForeColor = System.Drawing.Color.White;
-            this.ClearButton.Location = new System.Drawing.Point(216, 129);
+            this.ClearButton.Location = new System.Drawing.Point(213, 95);
             this.ClearButton.Name = "ClearButton";
-            this.ClearButton.Size = new System.Drawing.Size(65, 57);
+            this.ClearButton.Size = new System.Drawing.Size(64, 40);
             this.ClearButton.TabIndex = 18;
             this.ClearButton.Tag = "clear";
             this.ClearButton.Text = "Clear";
@@ -562,9 +576,9 @@
             this.ZeroButton.BackColor = System.Drawing.Color.SteelBlue;
             this.NumberButtonTableLayoutPanel.SetColumnSpan(this.ZeroButton, 2);
             this.ZeroButton.ForeColor = System.Drawing.Color.White;
-            this.ZeroButton.Location = new System.Drawing.Point(3, 255);
+            this.ZeroButton.Location = new System.Drawing.Point(3, 187);
             this.ZeroButton.Name = "ZeroButton";
-            this.ZeroButton.Size = new System.Drawing.Size(136, 60);
+            this.ZeroButton.Size = new System.Drawing.Size(134, 40);
             this.ZeroButton.TabIndex = 10;
             this.ZeroButton.Tag = "0";
             this.ZeroButton.Text = "0";
@@ -579,21 +593,26 @@
             this.DoneButton.BackColor = System.Drawing.Color.SeaGreen;
             this.DoneButton.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DoneButton.ForeColor = System.Drawing.Color.White;
-            this.DoneButton.Location = new System.Drawing.Point(216, 192);
+            this.DoneButton.Location = new System.Drawing.Point(213, 141);
             this.DoneButton.Name = "DoneButton";
             this.NumberButtonTableLayoutPanel.SetRowSpan(this.DoneButton, 2);
-            this.DoneButton.Size = new System.Drawing.Size(65, 123);
+            this.DoneButton.Size = new System.Drawing.Size(64, 86);
             this.DoneButton.TabIndex = 11;
             this.DoneButton.Tag = "done";
             this.DoneButton.Text = "Done";
             this.DoneButton.UseVisualStyleBackColor = false;
             this.DoneButton.Click += new System.EventHandler(this.NumericButton_Click);
             // 
+            // AnimationTimer
+            // 
+            this.AnimationTimer.Interval = 16;
+            this.AnimationTimer.Tick += new System.EventHandler(this.AnimationTimer_Tick);
+            // 
             // BMICalculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(31F, 61F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(294, 860);
+            this.ClientSize = new System.Drawing.Size(294, 641);
             this.Controls.Add(this.NumberButtonTableLayoutPanel);
             this.Controls.Add(this.MultilineTextBox);
             this.Controls.Add(this.BMITableLayoutPanel);
@@ -611,6 +630,7 @@
             this.Text = "BMI Calculator";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BMICalculator_FormClosing);
             this.Load += new System.EventHandler(this.BMICalculator_Load);
+            this.Click += new System.EventHandler(this.BMICalculator_Click);
             this.UnitSelectionGroupBox.ResumeLayout(false);
             this.UnitSelectionGroupBox.PerformLayout();
             this.ImperialTableLayoutPanel.ResumeLayout(false);
@@ -633,7 +653,7 @@
         private System.Windows.Forms.TableLayoutPanel ImperialTableLayoutPanel;
         private System.Windows.Forms.Label InchLabel;
         private System.Windows.Forms.Label PoundLabel;
-        private System.Windows.Forms.TextBox InchesTextBox;
+        private System.Windows.Forms.TextBox InchTextBox;
         private System.Windows.Forms.TextBox PoundTextBox;
         private System.Windows.Forms.TableLayoutPanel MetricTableLayoutPanel;
         private System.Windows.Forms.Label MeterLabel;
@@ -662,6 +682,7 @@
         private System.Windows.Forms.Button DecimalButton;
         private System.Windows.Forms.Button BackButton;
         private System.Windows.Forms.Button ClearButton;
+        private System.Windows.Forms.Timer AnimationTimer;
     }
 }
 

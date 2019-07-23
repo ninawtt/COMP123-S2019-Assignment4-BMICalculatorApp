@@ -64,12 +64,11 @@ namespace COMP123_S2019_Assignment4_BMICalculatorApp
         /// <param name="e"></param>
         private void BMICalculator_Load(object sender, EventArgs e)
         {
-            
-
             clearNumericKeyboard();
             NumberButtonTableLayoutPanel.Visible = false;
             ActiveTextBox = null;
             animationState = AnimationState.IDLE;
+            BMITableLayoutPanel.Visible = false;
         }
 
         /// <summary>
@@ -88,8 +87,53 @@ namespace COMP123_S2019_Assignment4_BMICalculatorApp
 
         private void CalculateButton_Click(object sender, EventArgs e)
         {
-            Program.resultForm.Show();
-            Program.bMICalculator.Hide();
+            CalculateAndDisplayBMI();
+            DisplayBMIScale();
+        }
+
+        private void DisplayBMIScale()
+        {
+            MultilineTextBox.Visible = true;
+            float bmi = float.Parse(BMITextBox.Text);
+            if (bmi < 18.5)
+            {
+                MultilineTextBox.Text = "Your BMI Scale is Underweight";
+            }
+            else if (bmi >= 18.5 && bmi <= 24.9)
+            {
+                MultilineTextBox.Text = "Your BMI Scale is Normal";
+            }
+            else if (bmi >= 25 && bmi <= 29.9)
+            {
+                MultilineTextBox.Text = "Your BMI Scale is Overweight";
+            }
+            else if (bmi >= 30)
+            {
+                MultilineTextBox.Text = "Your BMI Scale is Obese";
+            }
+        }
+
+        private void CalculateAndDisplayBMI()
+        {
+            BMITableLayoutPanel.Visible = true;
+            float bmi = 0.0f;
+            float weight = 0.0f;
+            float height = 0.0f;
+            if (ImperialUnitRadioButton.Checked)
+            {
+                weight = float.Parse(PoundTextBox.Text);
+                height = float.Parse(InchTextBox.Text);
+                bmi = weight * 703 / (float)(Math.Pow(height, 2));
+                bmi = (float)(Math.Round(bmi, 1));
+            }
+            else
+            {
+                weight = float.Parse(KilogramTextBox.Text);
+                height = float.Parse(MeterTextBox.Text);
+                bmi = weight / (float)(Math.Pow(height, 2));
+                bmi = (float)(Math.Round(bmi, 1));
+            }
+            BMITextBox.Text = bmi.ToString();
         }
 
         private void BMICalculator_FormClosing(object sender, FormClosingEventArgs e)
@@ -101,12 +145,18 @@ namespace COMP123_S2019_Assignment4_BMICalculatorApp
         {
             ImperialTableLayoutPanel.Visible = true;
             MetricTableLayoutPanel.Visible = false;
+            ActiveTextBox = null;
+            AnimationTimer.Enabled = true;
+            animationState = AnimationState.DOWN;
         }
 
         private void MetricUnitRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             MetricTableLayoutPanel.Visible = true;
             ImperialTableLayoutPanel.Visible = false;
+            ActiveTextBox = null;
+            AnimationTimer.Enabled = true;
+            animationState = AnimationState.DOWN;
         }
 
         /// <summary>
@@ -298,5 +348,21 @@ namespace COMP123_S2019_Assignment4_BMICalculatorApp
             }
         }
 
+        /// <summary>
+        /// This is the event handler for ResetButton Click event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ResetButton_Click(object sender, EventArgs e)
+        {
+            InchTextBox.Text = "0";
+            PoundTextBox.Text = "0";
+            MeterTextBox.Text = "0";
+            KilogramTextBox.Text = "0";
+            BMITextBox.Text = "0";
+            MultilineTextBox.Text = " ";
+            BMITableLayoutPanel.Visible = false;
+            MultilineTextBox.Visible = false;
+        }
     }
 }

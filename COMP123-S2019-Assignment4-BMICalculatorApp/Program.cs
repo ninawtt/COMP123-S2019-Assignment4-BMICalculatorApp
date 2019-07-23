@@ -10,12 +10,13 @@ using System.Windows.Forms;
 // Author : Tzu-Ting Wu (Nina)
 // Author's Student Number : 301040475
 // Created On : 7/18/2019 9:11:00 PM
-// Last Modified On : 7/21/2019 10:09:00 PM
+// Last Modified On : 7/22/2019 11:41:00 PM
 // Description : Create a BMI calculator application
 // Revision History  :
 // *
 // * Date             Author Ref         Revision(Date in YYYYMMDD format)
-// * 20190721         Tzu-Ting Wu        1  Added the numeric keyboard for the textboxes           
+// * 20190721         Tzu-Ting Wu        1  Added the numeric keyboard for the textboxes      
+// * 20190722         Tzu-Ting Wu        2  Added numeric keyboard animation and completed BMI calculation functionality
 // * 
 // * 
 // * 

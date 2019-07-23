@@ -47,7 +47,6 @@
             this.BMITableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.BMITextBox = new System.Windows.Forms.TextBox();
             this.BMILabel = new System.Windows.Forms.Label();
-            this.MultilineTextBox = new System.Windows.Forms.TextBox();
             this.NumberButtonTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.ResultLabel = new System.Windows.Forms.Label();
             this.ThreeButton = new System.Windows.Forms.Button();
@@ -65,6 +64,7 @@
             this.ZeroButton = new System.Windows.Forms.Button();
             this.DoneButton = new System.Windows.Forms.Button();
             this.AnimationTimer = new System.Windows.Forms.Timer(this.components);
+            this.MultilineTextBox = new System.Windows.Forms.TextBox();
             this.UnitSelectionGroupBox.SuspendLayout();
             this.ImperialTableLayoutPanel.SuspendLayout();
             this.MetricTableLayoutPanel.SuspendLayout();
@@ -206,7 +206,7 @@
             this.MeterLabel.Location = new System.Drawing.Point(0, 0);
             this.MeterLabel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 20);
             this.MeterLabel.Name = "MeterLabel";
-            this.MeterLabel.Size = new System.Drawing.Size(110, 40);
+            this.MeterLabel.Size = new System.Drawing.Size(139, 40);
             this.MeterLabel.TabIndex = 0;
             this.MeterLabel.Text = " Meters";
             this.MeterLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -220,7 +220,7 @@
             this.KilogramLabel.Location = new System.Drawing.Point(0, 60);
             this.KilogramLabel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 20);
             this.KilogramLabel.Name = "KilogramLabel";
-            this.KilogramLabel.Size = new System.Drawing.Size(110, 40);
+            this.KilogramLabel.Size = new System.Drawing.Size(139, 40);
             this.KilogramLabel.TabIndex = 1;
             this.KilogramLabel.Text = "Kilograms";
             this.KilogramLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -230,9 +230,9 @@
             this.KilogramTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.KilogramTextBox.Location = new System.Drawing.Point(113, 63);
+            this.KilogramTextBox.Location = new System.Drawing.Point(142, 63);
             this.KilogramTextBox.Name = "KilogramTextBox";
-            this.KilogramTextBox.Size = new System.Drawing.Size(84, 68);
+            this.KilogramTextBox.Size = new System.Drawing.Size(95, 68);
             this.KilogramTextBox.TabIndex = 3;
             this.KilogramTextBox.Tag = "";
             this.KilogramTextBox.Text = "0";
@@ -244,9 +244,9 @@
             this.MeterTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.MeterTextBox.Location = new System.Drawing.Point(113, 3);
+            this.MeterTextBox.Location = new System.Drawing.Point(142, 3);
             this.MeterTextBox.Name = "MeterTextBox";
-            this.MeterTextBox.Size = new System.Drawing.Size(84, 68);
+            this.MeterTextBox.Size = new System.Drawing.Size(95, 68);
             this.MeterTextBox.TabIndex = 2;
             this.MeterTextBox.Tag = "";
             this.MeterTextBox.Text = "0";
@@ -271,6 +271,7 @@
             this.ResetButton.TabIndex = 7;
             this.ResetButton.Text = "Reset";
             this.ResetButton.UseVisualStyleBackColor = true;
+            this.ResetButton.Click += new System.EventHandler(this.ResetButton_Click);
             // 
             // BMITableLayoutPanel
             // 
@@ -279,10 +280,11 @@
             this.BMITableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.BMITableLayoutPanel.Controls.Add(this.BMITextBox, 1, 0);
             this.BMITableLayoutPanel.Controls.Add(this.BMILabel, 0, 0);
-            this.BMITableLayoutPanel.Location = new System.Drawing.Point(32, 260);
+            this.BMITableLayoutPanel.Location = new System.Drawing.Point(32, 269);
             this.BMITableLayoutPanel.Name = "BMITableLayoutPanel";
             this.BMITableLayoutPanel.RowCount = 1;
             this.BMITableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.BMITableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.BMITableLayoutPanel.Size = new System.Drawing.Size(239, 60);
             this.BMITableLayoutPanel.TabIndex = 10;
             // 
@@ -309,19 +311,8 @@
             this.BMILabel.Name = "BMILabel";
             this.BMILabel.Size = new System.Drawing.Size(143, 40);
             this.BMILabel.TabIndex = 0;
-            this.BMILabel.Text = "BMI";
+            this.BMILabel.Text = "Your BMI";
             this.BMILabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // MultilineTextBox
-            // 
-            this.MultilineTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.MultilineTextBox.Location = new System.Drawing.Point(21, 315);
-            this.MultilineTextBox.Multiline = true;
-            this.MultilineTextBox.Name = "MultilineTextBox";
-            this.MultilineTextBox.Size = new System.Drawing.Size(261, 0);
-            this.MultilineTextBox.TabIndex = 13;
             // 
             // NumberButtonTableLayoutPanel
             // 
@@ -608,10 +599,21 @@
             this.AnimationTimer.Interval = 16;
             this.AnimationTimer.Tick += new System.EventHandler(this.AnimationTimer_Tick);
             // 
+            // MultilineTextBox
+            // 
+            this.MultilineTextBox.Location = new System.Drawing.Point(20, 320);
+            this.MultilineTextBox.Multiline = true;
+            this.MultilineTextBox.Name = "MultilineTextBox";
+            this.MultilineTextBox.Size = new System.Drawing.Size(260, 75);
+            this.MultilineTextBox.TabIndex = 13;
+            this.MultilineTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.MultilineTextBox.Visible = false;
+            // 
             // BMICalculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(31F, 61F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LemonChiffon;
             this.ClientSize = new System.Drawing.Size(294, 641);
             this.Controls.Add(this.NumberButtonTableLayoutPanel);
             this.Controls.Add(this.MultilineTextBox);
@@ -665,7 +667,6 @@
         private System.Windows.Forms.TableLayoutPanel BMITableLayoutPanel;
         private System.Windows.Forms.TextBox BMITextBox;
         private System.Windows.Forms.Label BMILabel;
-        private System.Windows.Forms.TextBox MultilineTextBox;
         private System.Windows.Forms.TableLayoutPanel NumberButtonTableLayoutPanel;
         private System.Windows.Forms.Button DoneButton;
         private System.Windows.Forms.Button ZeroButton;
@@ -683,6 +684,7 @@
         private System.Windows.Forms.Button BackButton;
         private System.Windows.Forms.Button ClearButton;
         private System.Windows.Forms.Timer AnimationTimer;
+        private System.Windows.Forms.TextBox MultilineTextBox;
     }
 }
 

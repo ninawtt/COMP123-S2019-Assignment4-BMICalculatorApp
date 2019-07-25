@@ -164,6 +164,7 @@
             this.PoundTextBox.Text = "0";
             this.PoundTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.PoundTextBox.Click += new System.EventHandler(this.ActiveTextBox_Click);
+            this.PoundTextBox.TextChanged += new System.EventHandler(this.ImperialTextBox_TextChanged);
             // 
             // InchTextBox
             // 
@@ -178,6 +179,7 @@
             this.InchTextBox.Text = "0";
             this.InchTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.InchTextBox.Click += new System.EventHandler(this.ActiveTextBox_Click);
+            this.InchTextBox.TextChanged += new System.EventHandler(this.ImperialTextBox_TextChanged);
             // 
             // MetricTableLayoutPanel
             // 
@@ -238,6 +240,7 @@
             this.KilogramTextBox.Text = "0";
             this.KilogramTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.KilogramTextBox.Click += new System.EventHandler(this.ActiveTextBox_Click);
+            this.KilogramTextBox.TextChanged += new System.EventHandler(this.MetricTextBox_TextChanged);
             // 
             // MeterTextBox
             // 
@@ -252,9 +255,11 @@
             this.MeterTextBox.Text = "0";
             this.MeterTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.MeterTextBox.Click += new System.EventHandler(this.ActiveTextBox_Click);
+            this.MeterTextBox.TextChanged += new System.EventHandler(this.MetricTextBox_TextChanged);
             // 
             // CalculateButton
             // 
+            this.CalculateButton.Enabled = false;
             this.CalculateButton.Location = new System.Drawing.Point(12, 205);
             this.CalculateButton.Name = "CalculateButton";
             this.CalculateButton.Size = new System.Drawing.Size(148, 45);

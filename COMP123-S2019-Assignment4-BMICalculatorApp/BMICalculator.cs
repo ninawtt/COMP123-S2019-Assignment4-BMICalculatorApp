@@ -14,7 +14,7 @@ using System.Windows.Forms;
 // Author : Tzu-Ting Wu (Nina)
 // Author's Student Number : 301040475
 // Created On : 7/18/2019 9:11:00 PM
-// Last Modified On : 7/25/2019 17:12:00 PM
+// Last Modified On : 7/25/2019 17:27:00 PM
 // Description : Create a BMI calculator application
 // Revision History  :
 // *
@@ -122,6 +122,7 @@ namespace COMP123_S2019_Assignment4_BMICalculatorApp
             ActiveTextBox = null;
             AnimationTimer.Enabled = true;
             animationState = AnimationState.DOWN;
+            ResetInputsFromUser();
         }
 
         /// <summary>
@@ -136,6 +137,7 @@ namespace COMP123_S2019_Assignment4_BMICalculatorApp
             ActiveTextBox = null;
             AnimationTimer.Enabled = true;
             animationState = AnimationState.DOWN;
+            ResetInputsFromUser();
         }
 
         /// <summary>
@@ -401,6 +403,14 @@ namespace COMP123_S2019_Assignment4_BMICalculatorApp
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void ResetButton_Click(object sender, EventArgs e)
+        {
+            ResetInputsFromUser();
+        }
+
+        /// <summary>
+        /// This is the method resets the user's input
+        /// </summary>
+        private void ResetInputsFromUser()
         {
             InchTextBox.Text = "0";
             PoundTextBox.Text = "0";

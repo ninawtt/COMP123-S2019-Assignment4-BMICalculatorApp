@@ -14,7 +14,7 @@ using System.Windows.Forms;
 // Author : Tzu-Ting Wu (Nina)
 // Author's Student Number : 301040475
 // Created On : 7/18/2019 9:11:00 PM
-// Last Modified On : 7/25/2019 16:54:00 PM
+// Last Modified On : 7/25/2019 17:12:00 PM
 // Description : Create a BMI calculator application
 // Revision History  :
 // *
@@ -149,6 +149,9 @@ namespace COMP123_S2019_Assignment4_BMICalculatorApp
             DisplayBMIScale();
         }
         
+        /// <summary>
+        /// This method displays BMI scale depends on the BMI value
+        /// </summary>
         private void DisplayBMIScale()
         {
             MultilineTextBox.Visible = true;
@@ -171,6 +174,9 @@ namespace COMP123_S2019_Assignment4_BMICalculatorApp
             }
         }
 
+        /// <summary>
+        /// This method calculates and displays BMI value depends on the user's input
+        /// </summary>
         private void CalculateAndDisplayBMI()
         {
             BMITableLayoutPanel.Visible = true;
@@ -351,6 +357,9 @@ namespace COMP123_S2019_Assignment4_BMICalculatorApp
             }
         }
 
+        /// <summary>
+        /// This method controls the NumberButtonTableLayoutPanel moving up to the specific location
+        /// </summary>
         private void MoveNumberButtonTableUp()
         {
             var currentLocation = NumberButtonTableLayoutPanel.Location;
@@ -367,6 +376,9 @@ namespace COMP123_S2019_Assignment4_BMICalculatorApp
             }
         }
 
+        /// <summary>
+        /// This method controls the NumberButtonTableLayoutPanel moving down to the specific location
+        /// </summary>
         private void MoveNumberButtonTableDown()
         {
             var currentLocation = NumberButtonTableLayoutPanel.Location;
